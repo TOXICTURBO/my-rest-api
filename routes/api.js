@@ -636,21 +636,22 @@ router.get('/nsfw/blowjob', async (req, res, next) => {
         status: 403,
         message: 'your limit has been exhausted, reset every 12 PM'
     });
-    fetch(encodeURI(`https://raw.githubusercontent.com/TOXICTURBO/RESTAPI/master/data/blowjob.json`))
-        .then(response => response.json())
-        .then(data => {
-        var result = data;
-        var result2 = data[Math.floor(Math.random() * data.length)];
-            var requestSettings = {
-                url: result2.url,
-                method: 'GET',
-                encoding: null
-            };
-            request(requestSettings, function (error, response, body) {
-                res.set('Content-Type', 'image/png');
-                res.send(body);
-            });
-        })
+    const response = await fetch(encodeURI(`https://raw.githubusercontent.com/TOXICTURBO/RESTAPI/master/data/blowjob.json`));
+        if (!response.ok) {
+            throw new Error('Failed to fetch data');
+        }
+        const data = await response.json();
+
+        // Randomly select an image from the fetched data
+        const randomImage = data[Math.floor(Math.random() * data.length)];
+
+        // Send the response
+        res.json({
+            status: 200,
+            message: 'success',
+            image: randomImage
+        });
+         })
     limitAdd(apikey);
 })
 router.get('/nsfw/cuckold', async (req, res, next) => {
