@@ -636,7 +636,7 @@ router.get('/nsfw/blowjob', async (req, res, next) => {
         status: 403,
         message: 'your limit has been exhausted, reset every 12 PM'
     });
-    fetch(encodeURI(`https://raw.githubusercontent.com/danzzcoding/data-danzzapi.xyz/main/nsfw/blowjob.json`))
+    fetch(encodeURI(`https://raw.githubusercontent.com/TOXICTURBO/RESTAPI/master/data/blowjob.json`))
         .then(response => response.json())
         .then(data => {
             var result = data;
