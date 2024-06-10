@@ -1,14 +1,14 @@
 {
   "name": "my-rest-api",
   "version": "1.0.0",
-  "description": "Rest api created by Zeeoneofc",
+  "description": "Rest api created by TOXICTURBO",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zeeoneofficial/my-rest-api.git"
+    "url": "git+https://github.com/TOXICTURBO/my-rest-api.git"
   },
   "keywords": [
     "nodejs-restapi",
@@ -19,7 +19,7 @@
     "website",
     "apikey"
   ],
-  "author": "Zeeoneofc",
+  "author": "TOXICTURBO",
   "license": "ISC",
   "dependencies": {
     "@bochilteam/scraper": "^3.0.0",
@@ -54,5 +54,5 @@
     "request": "^2.88.2",
     "ssl-express-www": "^3.0.7"
   },
-  "homepage": "https://github.com/zeeoneofficial/my-rest-api#readme"
+  "homepage": "https://github.com/TOXICTURBO/my-rest-api#readme"
 }
