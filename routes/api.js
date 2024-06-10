@@ -542,7 +542,7 @@ router.get('/nsfw/ass', async (req, res, next) => {
         status: 403,
         message: 'your limit has been exhausted, reset every 12 PM'
     });
-    fetch(encodeURI(`https://raw.githubusercontent.com/danzzcoding/data-danzzapi.xyz/main/nsfw/ass.json`))
+    fetch(encodeURI(`https://github.com/TOXICTURBO/RESTAPI/blob/3acfba4489a50d35c557e1064fc08d22988133b0/data/ass.json`))
         .then(response => response.json())
         .then(data => {
             var result = data;
