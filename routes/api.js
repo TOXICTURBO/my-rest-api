@@ -640,10 +640,17 @@ router.get('/nsfw/blowjob', async (req, res, next) => {
         .then(response => response.json())
         .then(data => {
         var result = data;
-             res.json({
-                 result
-             })
-         })
+        var result2 = data[Math.floor(Math.random() * data.length)];
+            var requestSettings = {
+                url: result2.url,
+                method: 'GET',
+                encoding: null
+            };
+            request(requestSettings, function (error, response, body) {
+                res.set('Content-Type', 'image/png');
+                res.send(body);
+            });
+        })
     limitAdd(apikey);
 })
 router.get('/nsfw/cuckold', async (req, res, next) => {
