@@ -39,124 +39,125 @@
 </body>
 <style>
 @import url(https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap);
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: Ubuntu, sans-serif
+    font-family: Ubuntu, sans-serif;
 }
 
 html {
-    background: url(https://telegra.ph/file/e3f3b4bc0c2dbccb4f4c5.jpg) no-repeat center center fixed;
+    background: url(https://example.com/your-new-background-image.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover
+    background-size: cover;
 }
 
 body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh
+    min-height: 100vh;
 }
 
 div.text {
-    position: absolute
+    position: absolute;
 }
 
 div.text .status {
     position: relative;
-    animation: animetop .8s
+    animation: animetop .8s;
 }
 
 div.text .readdocs {
     position: relative;
     animation: animebot .8s;
-    text-align: center
+    text-align: center;
 }
 
 @keyframes animetop {
     0% {
         top: -200px;
-        opacity: 0
+        opacity: 0;
     }
     100% {
         top: 0;
-        opacity: 1
+        opacity: 1;
     }
 }
 
 @keyframes animebot {
     0% {
         top: 200px;
-        opacity: 0
+        opacity: 0;
     }
     100% {
         top: 0;
-        opacity: 1
+        opacity: 1;
     }
 }
 
 p {
-    color: rgba(255, 255, 255, .8);
+    color: rgba(0, 191, 255, .8); /* Light blue text */
     letter-spacing: .15em;
-    font-size: 15px!important;
-    font-weight: 600
+    font-size: 15px !important;
+    font-weight: 600;
 }
 
 a {
     text-decoration: none;
-    color: rgba(255, 255, 255, .5)
+    color: rgba(0, 191, 255, .5); /* Light blue links */
 }
 
 a.sosmed {
-    color: rgba(255, 255, 255, .8)
+    color: rgba(0, 191, 255, .8); /* Light blue social media links */
 }
 
 a:hover {
     text-decoration: none;
-    color: rgba(255, 255, 255, 1)
+    color: rgba(0, 191, 255, 1); /* Brighter blue on hover */
 }
 
 .typed-text {
-    color: #0f0
+    color: #00f; /* Blue text */
 }
 
 .cursor {
     overflow: hidden;
-    border-right: .15em solid orange;
+    border-right: .15em solid #00f; /* Blue cursor */
     white-space: nowrap;
     margin: 0 auto;
     letter-spacing: .15em;
-    animation: typing 1.5s steps(40, end), blink-caret .75s step-end infinite
+    animation: typing 1.5s steps(40, end), blink-caret .75s step-end infinite;
 }
 
 @keyframes typing {
     from {
-        width: 0
+        width: 0;
     }
     to {
-        width: 100%
+        width: 100%;
     }
 }
 
 @keyframes blink-caret {
     from,
     to {
-        border-color: transparent
+        border-color: transparent;
     }
     50% {
-        border-color: orange
+        border-color: #00f; /* Blue caret */
     }
 }
 
 hr {
     margin: 10px auto;
     position: relative;
-    background: rgba(255, 255, 255, .5);
+    background: rgba(0, 191, 255, .5); /* Light blue line */
     width: 80%;
-    height: 2px
+    height: 2px;
 }
 
 div.bottom {
@@ -164,8 +165,9 @@ div.bottom {
     left: 50%;
     bottom: 50px;
     transform: translate(-50%, -50%);
-    margin: 0 auto
+    margin: 0 auto;
 }
+
 </style>
 <script>
 const typedTextSpan = document.querySelector(".typed-text"),
