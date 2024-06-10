@@ -53,7 +53,7 @@ router.get('/download/facebook', async (req, res, next) => {
     if (!url) return res.json({
         status: false,
         creator: `${creator}`,
-        message: "masukan parameter url"
+        message: "enter url"
     })
     const check = await cekKey(apikey);
     if (!check) return res.status(403).send({
@@ -83,7 +83,7 @@ router.get('/download/instagram', async (req, res, next) => {
     if (!url) return res.json({
         status: false,
         creator: `${creator}`,
-        message: "masukan parameter username"
+        message: "enter username"
     })
     const check = await cekKey(apikey);
     if (!check) return res.status(403).send({
@@ -115,7 +115,7 @@ router.get('/download/pinterest', async (req, res, next) => {
     if (!url) return res.json({
         status: false,
         creator: `${creator}`,
-        message: "masukan parameter q"
+        message: "enter q"
     })
     const check = await cekKey(apikey);
     if (!check) return res.status(403).send({
@@ -148,7 +148,7 @@ router.get('/download/tiktok', async (req, res, next) => {
     if (!url) return res.json({
         status: false,
         creator: `${creator}`,
-        message: "masukan parameter url"
+        message: "enter url"
     })
     const check = await cekKey(apikey);
     if (!check) return res.status(403).send({
@@ -179,7 +179,7 @@ router.get('/download/ytmp3', async (req, res, next) => {
     if (!url) return res.json({
         status: false,
         creator: `${creator}`,
-        message: "masukan parameter url"
+        message: "enter url"
     })
     const check = await cekKey(apikey);
     if (!check) return res.status(403).send({
@@ -224,7 +224,7 @@ router.get('/download/ytmp4', async (req, res, next) => {
     if (!url) return res.json({
         status: false,
         creator: `${creator}`,
-        message: "masukan parameter url"
+        message: "enter url"
     })
     const check = await cekKey(apikey);
     if (!check) return res.status(403).send({
@@ -270,7 +270,7 @@ router.get('/photooxy/flaming', async (req, res, next) => {
     if (!text) return res.json({
         status: false,
         creator: `${creator}`,
-        message: "masukan parameter text"
+        message: "enter text"
     })
     const check = await cekKey(apikey);
     if (!check) return res.status(403).send({
@@ -302,7 +302,7 @@ router.get('/photooxy/shadow-sky', async (req, res, next) => {
     if (!text) return res.json({
         status: false,
         creator: `${creator}`,
-        message: "masukan parameter text"
+        message: "enter text"
     })
     const check = await cekKey(apikey);
     if (!check) return res.status(403).send({
@@ -334,7 +334,7 @@ router.get('/photooxy/metallic', async (req, res, next) => {
     if (!text) return res.json({
         status: false,
         creator: `${creator}`,
-        message: "masukan parameter text"
+        message: "enter text"
     })
     const check = await cekKey(apikey);
     if (!check) return res.status(403).send({
@@ -366,7 +366,7 @@ router.get('/photooxy/naruto', async (req, res, next) => {
     if (!text) return res.json({
         status: false,
         creator: `${creator}`,
-        message: "masukan parameter text"
+        message: "enter text"
     })
     const check = await cekKey(apikey);
     if (!check) return res.status(403).send({
@@ -399,7 +399,7 @@ router.get('/photooxy/pubg-mobile', async (req, res, next) => {
     if (!text || !text2) return res.json({
         status: false,
         creator: `${creator}`,
-        message: "masukan parameter text & text2"
+        message: "enter text & text2"
     })
     const check = await cekKey(apikey);
     if (!check) return res.status(403).send({
@@ -433,7 +433,7 @@ router.get('/search/google-image', async (req, res, next) => {
     if (!text) return res.json({
         status: false,
         creator: `${creator}`,
-        message: "masukan parameter query"
+        message: "enter query"
     })
     const check = await cekKey(apikey);
     if (!check) return res.status(403).send({
@@ -466,7 +466,7 @@ router.get('/search/wallpaper', async (req, res, next) => {
     if (!text) return res.json({
         status: false,
         creator: `${creator}`,
-        message: "masukan parameter query"
+        message: "enter query"
     })
     const check = await cekKey(apikey);
     if (!check) return res.status(403).send({
@@ -499,7 +499,7 @@ router.get('/search/pinterest', async (req, res, next) => {
     if (!text) return res.json({
         status: false,
         creator: `${creator}`,
-        message: "masukan parameter query"
+        message: "enter query"
     })
     const check = await cekKey(apikey);
     if (!check) return res.status(403).send({
@@ -639,18 +639,11 @@ router.get('/nsfw/blowjob', async (req, res, next) => {
     fetch(encodeURI(`https://raw.githubusercontent.com/TOXICTURBO/RESTAPI/master/data/blowjob.json`))
         .then(response => response.json())
         .then(data => {
-            var result = data;
-            var result = data[Math.floor(Math.random() * data.length)];
-            var requestSettings = {
-                url: result.url,
-                method: 'GET',
-                encoding: null
-            };
-            request(requestSettings, function (error, response, body) {
-                res.set('Content-Type', 'image/png');
-                res.send(body);
-            });
-        })
+        var result = data;
+             res.json({
+                 result
+             })
+         })
     limitAdd(apikey);
 })
 router.get('/nsfw/cuckold', async (req, res, next) => {
