@@ -53,7 +53,7 @@ router.get('/download/facebook', async (req, res, next) => {
     if (!url) return res.json({
         status: false,
         creator: `${creator}`,
-        message: "enter url"
+        message: "masukan parameter url"
     })
     const check = await cekKey(apikey);
     if (!check) return res.status(403).send({
@@ -83,7 +83,7 @@ router.get('/download/instagram', async (req, res, next) => {
     if (!url) return res.json({
         status: false,
         creator: `${creator}`,
-        message: "enter username"
+        message: "masukan parameter username"
     })
     const check = await cekKey(apikey);
     if (!check) return res.status(403).send({
@@ -115,7 +115,7 @@ router.get('/download/pinterest', async (req, res, next) => {
     if (!url) return res.json({
         status: false,
         creator: `${creator}`,
-        message: "enter q"
+        message: "masukan parameter q"
     })
     const check = await cekKey(apikey);
     if (!check) return res.status(403).send({
@@ -148,7 +148,7 @@ router.get('/download/tiktok', async (req, res, next) => {
     if (!url) return res.json({
         status: false,
         creator: `${creator}`,
-        message: "enter url"
+        message: "masukan parameter url"
     })
     const check = await cekKey(apikey);
     if (!check) return res.status(403).send({
@@ -179,7 +179,7 @@ router.get('/download/ytmp3', async (req, res, next) => {
     if (!url) return res.json({
         status: false,
         creator: `${creator}`,
-        message: "enter url"
+        message: "masukan parameter url"
     })
     const check = await cekKey(apikey);
     if (!check) return res.status(403).send({
@@ -224,7 +224,7 @@ router.get('/download/ytmp4', async (req, res, next) => {
     if (!url) return res.json({
         status: false,
         creator: `${creator}`,
-        message: "enter url"
+        message: "masukan parameter url"
     })
     const check = await cekKey(apikey);
     if (!check) return res.status(403).send({
@@ -270,7 +270,7 @@ router.get('/photooxy/flaming', async (req, res, next) => {
     if (!text) return res.json({
         status: false,
         creator: `${creator}`,
-        message: "enter text"
+        message: "masukan parameter text"
     })
     const check = await cekKey(apikey);
     if (!check) return res.status(403).send({
@@ -302,7 +302,7 @@ router.get('/photooxy/shadow-sky', async (req, res, next) => {
     if (!text) return res.json({
         status: false,
         creator: `${creator}`,
-        message: "enter text"
+        message: "masukan parameter text"
     })
     const check = await cekKey(apikey);
     if (!check) return res.status(403).send({
@@ -334,7 +334,7 @@ router.get('/photooxy/metallic', async (req, res, next) => {
     if (!text) return res.json({
         status: false,
         creator: `${creator}`,
-        message: "enter text"
+        message: "masukan parameter text"
     })
     const check = await cekKey(apikey);
     if (!check) return res.status(403).send({
@@ -366,7 +366,7 @@ router.get('/photooxy/naruto', async (req, res, next) => {
     if (!text) return res.json({
         status: false,
         creator: `${creator}`,
-        message: "enter text"
+        message: "masukan parameter text"
     })
     const check = await cekKey(apikey);
     if (!check) return res.status(403).send({
@@ -399,7 +399,7 @@ router.get('/photooxy/pubg-mobile', async (req, res, next) => {
     if (!text || !text2) return res.json({
         status: false,
         creator: `${creator}`,
-        message: "enter text & text2"
+        message: "masukan parameter text & text2"
     })
     const check = await cekKey(apikey);
     if (!check) return res.status(403).send({
@@ -433,7 +433,7 @@ router.get('/search/google-image', async (req, res, next) => {
     if (!text) return res.json({
         status: false,
         creator: `${creator}`,
-        message: "enter query"
+        message: "masukan parameter query"
     })
     const check = await cekKey(apikey);
     if (!check) return res.status(403).send({
@@ -466,7 +466,7 @@ router.get('/search/wallpaper', async (req, res, next) => {
     if (!text) return res.json({
         status: false,
         creator: `${creator}`,
-        message: "enter query"
+        message: "masukan parameter query"
     })
     const check = await cekKey(apikey);
     if (!check) return res.status(403).send({
@@ -499,7 +499,7 @@ router.get('/search/pinterest', async (req, res, next) => {
     if (!text) return res.json({
         status: false,
         creator: `${creator}`,
-        message: "enter query"
+        message: "masukan parameter query"
     })
     const check = await cekKey(apikey);
     if (!check) return res.status(403).send({
@@ -542,7 +542,7 @@ router.get('/nsfw/ass', async (req, res, next) => {
         status: 403,
         message: 'your limit has been exhausted, reset every 12 PM'
     });
-    fetch(encodeURI(`https://raw.githubusercontent.com/TOXICTURBO/RESTAPI/3acfba4489a50d35c557e1064fc08d22988133b0/data/ass.json`))
+    fetch(encodeURI(`https://raw.githubusercontent.com/TOXICTURBO/RESTAPI/master/data/ass.json`))
         .then(response => response.json())
         .then(data => {
             var result = data;
@@ -574,7 +574,7 @@ router.get('/nsfw/ahegao', async (req, res, next) => {
         status: 403,
         message: 'your limit has been exhausted, reset every 12 PM'
     });
-    fetch(encodeURI(`https://raw.githubusercontent.com/danzzcoding/data-danzzapi.xyz/main/nsfw/ahegao.json`))
+    fetch(encodeURI(`https://raw.githubusercontent.com/TOXICTURBO/RESTAPI/master/data/ahegao.json`))
         .then(response => response.json())
         .then(data => {
             var result = data;
@@ -605,7 +605,7 @@ router.get('/nsfw/bdsm', async (req, res, next) => {
         status: 403,
         message: 'your limit has been exhausted, reset every 12 PM'
     });
-    fetch(encodeURI(`https://raw.githubusercontent.com/danzzcoding/data-danzzapi.xyz/main/nsfw/bdsm.json`))
+    fetch(encodeURI(`https://raw.githubusercontent.com/TOXICTURBO/RESTAPI/master/data/bdsm.json`))
         .then(response => response.json())
         .then(data => {
             var result = data;
@@ -624,7 +624,6 @@ router.get('/nsfw/bdsm', async (req, res, next) => {
 })
 router.get('/nsfw/blowjob', async (req, res, next) => {
     var apikey = req.query.apikey
-    var text = req.query.page
     if (!apikey) return res.json(loghandler.noapikey)
     const check = await cekKey(apikey);
     if (!check) return res.status(403).send({
@@ -637,12 +636,21 @@ router.get('/nsfw/blowjob', async (req, res, next) => {
         status: 403,
         message: 'your limit has been exhausted, reset every 12 PM'
     });
-    const blowjob = JSON.parse(fs.readFileSync(__path +'/data/blowjob.json'));
-  const randblowjob = blowjob[Math.floor(Math.random() * blowjob.length)];
-  data = await fetch(randahegao).then(v => v.buffer())
-  await fs.writeFileSync(__path +'/tmp/blowjob.jpeg', data)
-  res.sendFile(__path +'/tmp/blowjob.jpeg')
-  })
+    fetch(encodeURI(`https://raw.githubusercontent.com/TOXICTURBO/RESTAPI/master/data/blowjob.json`))
+        .then(response => response.json())
+        .then(data => {
+            var result = data;
+            var result = data[Math.floor(Math.random() * data.length)];
+            var requestSettings = {
+                url: result.url,
+                method: 'GET',
+                encoding: null
+            };
+            request(requestSettings, function (error, response, body) {
+                res.set('Content-Type', 'image/png');
+                res.send(body);
+            });
+        })
     limitAdd(apikey);
 })
 router.get('/nsfw/cuckold', async (req, res, next) => {
@@ -660,7 +668,7 @@ router.get('/nsfw/cuckold', async (req, res, next) => {
         status: 403,
         message: 'your limit has been exhausted, reset every 12 PM'
     });
-    fetch(encodeURI(`https://raw.githubusercontent.com/danzzcoding/data-danzzapi.xyz/main/nsfw/cuckold.json`))
+    fetch(encodeURI(`https://raw.githubusercontent.com/TOXICTURBO/RESTAPI/master/data/cuckold.json`))
         .then(response => response.json())
         .then(data => {
             var result = data;
