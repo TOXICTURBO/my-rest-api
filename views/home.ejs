@@ -13,7 +13,6 @@
     <meta property="og:title" name="og:title" content="Turbo Api">
     <meta property="og:url" name="og:url" content="https://wa.me/916380260672">
     <meta property="og:description" name="og:description" content="Nothing special here">
-    <script src="https://cdn.rawgit.com/bungfrangki/efeksalju/2a7805c7/efek-salju.js" type="text/javascript"> </script>
     <link rel="stylesheet" href="vendors/mdi/css/materialdesignicons.min.css">
     <meta name="msapplication-TileColor" content="#ffffff">
     <link rel="shortcut icon" href="https://telegra.ph/file/585c329da45f7d2a6e9dc.png" type="image/x-icon" />
@@ -24,11 +23,11 @@
 <body style="background-color: #fff;">
     <div class="text">
         <div class="status">
-            <p></br></br></br></br></br></br></br></br></br></br></br></br></br>STATUS : <span class="typed-text"></span><span class="cursor typing"></span></p>
+            <p>STATUS: <span class="typed-text"></span><span class="cursor typing"></span></p>
         </div>
         <hr>
         <div class="readdocs">
-            <button class="docs">Open Docs</button>
+            <button class="docs">Open Documentation</button>
         </div>
     </div>
     <div class="bottom">
@@ -38,13 +37,13 @@
     </div>
 </body>
 <style>
-    @import url(https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap);
+    @import url(https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap);
 
     * {
         padding: 0;
         margin: 0;
         box-sizing: border-box;
-        font-family: Ubuntu, sans-serif;
+        font-family: 'Roboto', sans-serif;
     }
 
     html {
@@ -60,17 +59,14 @@
 
     div.text {
         position: absolute;
+        text-align: center;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 
     div.text .status {
-        position: relative;
-        animation: animetop .8s;
-    }
-
-    div.text .readdocs {
-        position: relative;
-        animation: animebot .8s;
-        text-align: center;
+        margin-bottom: 20px;
     }
 
     .readdocs button {
@@ -88,99 +84,61 @@
         background-color: #0056b3; /* Darker blue on hover */
     }
 
-    @keyframes animetop {
-        0% {
-            top: -200px;
-            opacity: 0;
-        }
-
-        100% {
-            top: 0;
-            opacity: 1;
-        }
-    }
-
-    @keyframes animebot {
-        0% {
-            top: 200px;
-            opacity: 0;
-        }
-
-        100% {
-            top: 0;
-            opacity: 1;
-        }
-    }
-
     p {
-        color: rgba(0, 191, 255, .8); /* Light blue text */
-        letter-spacing: .15em;
-        font-size: 15px !important;
-        font-weight: 600;
+        color: #333; /* Dark gray text */
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 1.5;
     }
 
     a {
         text-decoration: none;
-        color: rgba(0, 191, 255, .5); /* Light blue links */
-    }
-
-    a.sosmed {
-        color: rgba(0, 191, 255, .8); /* Light blue social media links */
+        color: #007bff; /* Blue links */
     }
 
     a:hover {
-        text-decoration: none;
-        color: rgba(0, 191, 255, 1); /* Brighter blue on hover */
+        text-decoration: underline;
     }
 
     .typed-text {
-        color: #00f; /* Blue text */
+        color: #007bff; /* Blue text */
     }
 
     .cursor {
-        overflow: hidden;
-        border-right: .15em solid #00f; /* Blue cursor */
-        white-space: nowrap;
-        margin: 0 auto;
-        letter-spacing: .15em;
-        animation: typing 1.5s steps(40, end), blink-caret .75s step-end infinite;
-    }
-
-    @keyframes typing {
-        from {
-            width: 0;
-        }
-
-        to {
-            width: 100%;
-        }
+        display: inline-block;
+        margin-left: 5px;
+        width: 10px;
+        height: 15px;
+        background-color: #007bff; /* Blue cursor */
+        animation: blink-caret 0.75s step-end infinite;
     }
 
     @keyframes blink-caret {
-        from,
-        to {
-            border-color: transparent;
+        0% {
+            opacity: 1;
         }
 
         50% {
-            border-color: #00f; /* Blue caret */
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
         }
     }
 
     hr {
-        margin: 10px auto;
-        position: relative;
-        background: rgba(0, 191, 255, .5); /* Light blue line */
-        width: 80%;
+        margin: 20px auto;
+        background: #007bff; /* Blue line */
         height: 2px;
+        width: 80%;
     }
 
     div.bottom {
         position: fixed;
         left: 50%;
         bottom: 50px;
-        transform: translate(-50%, -50%);
-        margin: 0 auto;
+        transform: translateX(-50%);
     }
 </style>
 <script>
@@ -188,28 +146,36 @@
         textArray = ["ACTIVE~", "ONLINE~"],
         typingDelay = 200,
         erasingDelay = 100,
-        newTextDelay = 2e3;
+        newTextDelay = 2000;
     let textArrayIndex = 0,
         charIndex = 0;
 
     function type() {
-        charIndex < textArray[textArrayIndex].length ? (typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex), charIndex++, setTimeout(type, 200)) : setTimeout(erase, 2e3)
+        if (charIndex < textArray[textArrayIndex].length) {
+            typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
+            charIndex++;
+            setTimeout(type, 200);
+        } else {
+            setTimeout(erase, 2000);
+        }
     }
 
     function erase() {
-        charIndex > 0 ? (typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex - 1), charIndex--, setTimeout(erase, 100)) : (textArrayIndex++, textArrayIndex >= textArray.length && (textArrayIndex = 0), setTimeout(type, 1300))
+        if (charIndex > 0) {
+            typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex - 1);
+            charIndex--;
+            setTimeout(erase, 100);
+        } else {
+            textArrayIndex++;
+            if (textArrayIndex >= textArray.length) {
+                textArrayIndex = 0;
+            }
+            setTimeout(type, 1300);
+        }
     }
-    document.addEventListener("DOMContentLoaded", (function() {
-        setTimeout(type, 2250)
-    }));
-
-    $(document).ready((function() {
-        $(".changeprofile").submit((function(e) {
-            var formObj, formURL = $(this).attr("action"),
-                formData = new FormData(this);
-            $.ajax({ url: formURL, type: "POST", data: formData, contentType: !1, cache: !1, processData: !1, beforeSend: function() { $("button").attr("disabled", "disabled"), $("input").attr("disabled", "disabled"), $("a").attr("disabled", "disabled"), $(".inibutton").html('<i class="fas fa-spinner fa-spin"></i> Wait') }, success: function(data) { data.includes("Success") ? ($("button").removeAttr("disabled", "disabled"), $("a").removeAttr("disabled", "disabled"), $("input").removeAttr("disabled", "disabled"), $(".inibutton").html("Save"), $.notify({ icon: "tim-icons icon-check-2", message: data }, { type: "success", timer: 3e3, placement: { from: "top", align: "right" } }), window.location = window.location) : ($("button").removeAttr("disabled", "disabled"), $("a").removeAttr("disabled", "disabled"), $("input").removeAttr("disabled", "disabled"), $(".inibutton").html("Save"), $.notify({ icon: "tim-icons icon-simple-remove", message: data }, { type: "danger", timer: 3e3, placement: { from: "top", align: "right" } })) } }), e.preventDefault()
-        }))
-    }))
+    document.addEventListener("DOMContentLoaded", function() {
+        setTimeout(type, 2250);
+    });
 </script>
 
 </html>
