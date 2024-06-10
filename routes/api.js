@@ -624,6 +624,7 @@ router.get('/nsfw/bdsm', async (req, res, next) => {
 })
 router.get('/nsfw/blowjob', async (req, res, next) => {
     var apikey = req.query.apikey
+    var text = req.query.page
     if (!apikey) return res.json(loghandler.noapikey)
     const check = await cekKey(apikey);
     if (!check) return res.status(403).send({
@@ -636,22 +637,12 @@ router.get('/nsfw/blowjob', async (req, res, next) => {
         status: 403,
         message: 'your limit has been exhausted, reset every 12 PM'
     });
-    const response = await fetch(encodeURI(`https://raw.githubusercontent.com/TOXICTURBO/RESTAPI/master/data/blowjob.json`));
-        if (!response.ok) {
-            throw new Error('Failed to fetch data');
-        }
-        const data = await response.json();
-
-        // Randomly select an image from the fetched data
-        const randomImage = data[Math.floor(Math.random() * data.length)];
-
-        // Send the response
-        res.json({
-            status: 200,
-            message: 'success',
-            image: randomImage
-        });
-         })
+    const blowjob = JSON.parse(fs.readFileSync(__path +'/data/blowjob.json'));
+  const randblowjob = blowjob[Math.floor(Math.random() * blowjob.length)];
+  data = await fetch(randahegao).then(v => v.buffer())
+  await fs.writeFileSync(__path +'/tmp/blowjob.jpeg', data)
+  res.sendFile(__path +'/tmp/blowjob.jpeg')
+  })
     limitAdd(apikey);
 })
 router.get('/nsfw/cuckold', async (req, res, next) => {
