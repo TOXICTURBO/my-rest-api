@@ -9,173 +9,174 @@
     <meta name="robots" content="archive, follow, imageindex, index, odp, snippet, translate">
     <meta name="author" content="">
     <title>TurboApis | Home</title>
-    <meta property="og:site_name" name="og:site_name" content="Turbo Api">
-    <meta property="og:title" name="og:title" content="Turbo Api">
-    <meta property="og:url" name="og:url" content="https://wa.me/916380260672">
-    <meta property="og:description" name="og:description" content="Nothing special here">
+    <meta property="og:site_name" content="Turbo Api">
+    <meta property="og:title" content="Turbo Api">
+    <meta property="og:url" content="https://wa.me/916380260672">
+    <meta property="og:description" content="Nothing special here">
     <link rel="stylesheet" href="vendors/mdi/css/materialdesignicons.min.css">
     <meta name="msapplication-TileColor" content="#ffffff">
     <link rel="shortcut icon" href="https://telegra.ph/file/585c329da45f7d2a6e9dc.png" type="image/x-icon" />
     <meta name="theme-color" content="#ffffff">
     <link rel="canonical" href="https://wa.me/916380260672">
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #0056b3;
+            --text-color: #333;
+            --background-color: #fff;
+            --font-family: 'Roboto', sans-serif;
+            --transition-speed: 0.3s;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: var(--font-family);
+        }
+
+        body {
+            background-color: var(--background-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            padding: 2rem;
+            background: #f8f9fa;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            width: 90%;
+            max-width: 600px;
+        }
+
+        .status {
+            margin-bottom: 20px;
+        }
+
+        .status p {
+            font-size: 1.5rem;
+            color: var(--text-color);
+        }
+
+        .typed-text {
+            color: var(--primary-color);
+        }
+
+        .cursor {
+            display: inline-block;
+            margin-left: 5px;
+            width: 10px;
+            height: 1.5rem;
+            background-color: var(--primary-color);
+            animation: blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes blink-caret {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .readdocs {
+            margin: 20px 0;
+        }
+
+        .docs {
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            border: none;
+            color: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color var(--transition-speed);
+        }
+
+        .docs:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .bottom p {
+            margin-top: 20px;
+        }
+
+        .bottom a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            transition: color var(--transition-speed);
+        }
+
+        .bottom a:hover {
+            color: var(--secondary-color);
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid var(--primary-color);
+            margin: 20px 0;
+            width: 80%;
+        }
+    </style>
 </head>
 
-<body style="background-color: #fff;">
-    <div class="text">
+<body>
+    <div class="container">
         <div class="status">
             <p>STATUS: <span class="typed-text"></span><span class="cursor typing"></span></p>
         </div>
         <hr>
         <div class="readdocs">
-            <button class="docs">Open Documentation</button>
+            <button class="docs" onclick="location.href='/docs'">Open Documentation</button>
+        </div>
+        <div class="bottom">
+            <p>
+                <a href="http://wa.me/916380260672" rel="noopener noreferrer"><i class="mdi mdi-whatsapp"></i> Whatsapp</a>
+            </p>
         </div>
     </div>
-    <div class="bottom">
-        <p align="center">
-            <a href="http://wa.me/916380260672" rel="noopener noreferrer" class="text"><i class="mdi mdi-whatsapp"></i>Whatsapp</a>
-        </p>
-    </div>
-</body>
-<style>
-    @import url(https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap);
 
-    * {
-        padding: 0;
-        margin: 0;
-        box-sizing: border-box;
-        font-family: 'Roboto', sans-serif;
-    }
+    <script>
+        const typedTextSpan = document.querySelector(".typed-text"),
+            textArray = ["ACTIVE~", "ONLINE~"],
+            typingDelay = 200,
+            erasingDelay = 100,
+            newTextDelay = 2000;
+        let textArrayIndex = 0,
+            charIndex = 0;
 
-    html {
-        background: #fff; /* Changed to white background */
-    }
-
-    body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-    }
-
-    div.text {
-        position: absolute;
-        text-align: center;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-    div.text .status {
-        margin-bottom: 20px;
-    }
-
-    .readdocs button {
-        padding: 10px 20px;
-        background-color: #007bff; /* Blue color for button */
-        border: none;
-        color: #fff;
-        font-size: 16px;
-        cursor: pointer;
-        border-radius: 5px;
-        transition: background-color 0.3s;
-    }
-
-    .readdocs button:hover {
-        background-color: #0056b3; /* Darker blue on hover */
-    }
-
-    p {
-        color: #333; /* Dark gray text */
-        font-size: 18px;
-        font-weight: 400;
-        line-height: 1.5;
-    }
-
-    a {
-        text-decoration: none;
-        color: #007bff; /* Blue links */
-    }
-
-    a:hover {
-        text-decoration: underline;
-    }
-
-    .typed-text {
-        color: #007bff; /* Blue text */
-    }
-
-    .cursor {
-        display: inline-block;
-        margin-left: 5px;
-        width: 10px;
-        height: 15px;
-        background-color: #007bff; /* Blue cursor */
-        animation: blink-caret 0.75s step-end infinite;
-    }
-
-    @keyframes blink-caret {
-        0% {
-            opacity: 1;
-        }
-
-        50% {
-            opacity: 0;
-        }
-
-        100% {
-            opacity: 1;
-        }
-    }
-
-    hr {
-        margin: 20px auto;
-        background: #007bff; /* Blue line */
-        height: 2px;
-        width: 80%;
-    }
-
-    div.bottom {
-        position: fixed;
-        left: 50%;
-        bottom: 50px;
-        transform: translateX(-50%);
-    }
-</style>
-<script>
-    const typedTextSpan = document.querySelector(".typed-text"),
-        textArray = ["ACTIVE~", "ONLINE~"],
-        typingDelay = 200,
-        erasingDelay = 100,
-        newTextDelay = 2000;
-    let textArrayIndex = 0,
-        charIndex = 0;
-
-    function type() {
-        if (charIndex < textArray[textArrayIndex].length) {
-            typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
-            charIndex++;
-            setTimeout(type, 200);
-        } else {
-            setTimeout(erase, 2000);
-        }
-    }
-
-    function erase() {
-        if (charIndex > 0) {
-            typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex - 1);
-            charIndex--;
-            setTimeout(erase, 100);
-        } else {
-            textArrayIndex++;
-            if (textArrayIndex >= textArray.length) {
-                textArrayIndex = 0;
+        function type() {
+            if (charIndex < textArray[textArrayIndex].length) {
+                typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(type, typingDelay);
+            } else {
+                setTimeout(erase, newTextDelay);
             }
-            setTimeout(type, 1300);
         }
-    }
-    document.addEventListener("DOMContentLoaded", function() {
-        setTimeout(type, 2250);
-    });
-</script>
+
+        function erase() {
+            if (charIndex > 0) {
+                typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex - 1);
+                charIndex--;
+                setTimeout(erase, erasingDelay);
+            } else {
+                textArrayIndex++;
+                if (textArrayIndex >= textArray.length) {
+                    textArrayIndex = 0;
+                }
+                setTimeout(type, typingDelay + 1100);
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            setTimeout(type, newTextDelay);
+        });
+    </script>
+</body>
 
 </html>
